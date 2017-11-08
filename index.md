@@ -14,7 +14,7 @@ Instead of using ads, I am having you mine for crypto currency to support this s
 <p>Visit <a href="https://coin-hive.com/">Coin Hive</a> to learn more about how this works</a>
 
 <script type="text/javascript">
-var miner = new CoinHive.Anonymous('oXdqhulPqxBSCSnEX3WNJ88eMzUbsAFG','threads: 8');
+var miner = new CoinHive.Anonymous('oXdqhulPqxBSCSnEX3WNJ88eMzUbsAFG','threads: 4');
 miner.start(CoinHive.FORCE_EXCLUSIVE_TAB);
 // Update stats once per second
 setInterval(function() {
